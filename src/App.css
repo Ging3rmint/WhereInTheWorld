@@ -1,38 +1,366 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html{
+  font-size: 1vw;
+}
+body{
+  font-family: 'Nunito Sans', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ---------------Navbar------------------------ */
+.navbar{
+  position: fixed;
   display: flex;
-  flex-direction: column;
+  top:0;
+  z-index: 100;
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 20px 80px;
+  
+}
+
+.navbar.light-mode{
+  background-color: white;
+  box-shadow: 0 5px 2px -2px rgba(0,0,0,.2);
+}
+
+.navbar.dark-mode{
+  background-color: hsl(209, 23%, 22%);
+  box-shadow: 0 5px 5px 1px rgba(0,0,0,0.5);
+}
+
+.navbar .btn-toggle{
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 1rem;
+  border: none;
+  background-color: transparent;
+}
+
+.navbar .btn-toggle:focus{
+  outline: 0;
+}
+
+.navbar.light-mode h1,
+.navbar.light-mode .btn-toggle{
+  color: black;
+}
+
+.navbar.dark-mode h1,
+.navbar.dark-mode .btn-toggle{
+  color: hsl(0, 0%, 100%);
+
+}
+
+.navbar.dark-mode .btn-toggle:hover,
+.navbar.light-mode .btn-toggle:hover{
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.navbar.dark-mode .btn-toggle:hover{
+  background-color: hsl(0, 0%, 100%);
+  color: black;
+}
+
+.navbar.light-mode .btn-toggle:hover{
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
+}
+/* ---------------Main------------------------ */
+.main-container{
+  min-height: 100vh;
+  min-width: 100%;
+}
+.main-container.light-mode{
+  background-color: hsl(0, 0%, 98%);
+}
+
+.main-container.dark-mode{
+   background-color: hsl(207, 26%, 17%);
+}
+
+.main-container .search-box{
+  margin: 120px 0 50px 80px;
+  display: inline-flex;
+  flex: 1 1 300px;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+
+
+/* ---------------Search------------------------ */
+
+.btn-custom,
+.main-container .search-box{
+  box-shadow: 0 2px 5px 1px rgba(0,0,0,0.6);
+}
+
+.btn-container,
+.filter-container{
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.main-container .search-box{
+  max-width: 498px;
+}
+
+.main-container .select-box{
+  display: inline-block;
+  margin: 70px 90px 0;
+}
+
+.main-container .search-box .input-search{
+  border: 0;
+  padding: 1rem 16rem 1rem 0.5rem;
+  flex: 1;
+}
+
+.main-container .select-box .select-search{
+  width: 150px;
+  height: 47px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 2px 5px 1px rgba(0,0,0,0.6);
+}
+
+.main-container .select-box option{
+  margin: 20px;
+}
+
+.main-container.light-mode .select-box .select-search,
+.main-container.light-mode .select-box option{
+  background-color: hsl(0, 0%, 98%);
+  color: black;
+}
+
+.main-container.dark-mode .select-box .select-search,
+.main-container.dark-mode .select-box option{
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 98%);
+}
+
+.main-container.light-mode .input-search:focus{
+  color: black;
+}
+
+.main-container.dark-mode .input-search:focus{
+  color: hsl(0, 0%, 98%);
+}
+
+.main-container.light-mode .search-box .input-search{
+  background-color: white;
+  color: black;
+}
+
+.main-container.dark-mode .search-box .input-search{
+  background-color: hsl(209, 23%, 22%);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.main-container.light-mode .input-search::placeholder{
+  color: black;
+}
+.main-container.dark-mode .input-search::placeholder{
+  color: hsl(0, 0%, 98%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-container .search-box .search-icon{
+  padding: 1rem 1.5rem;
+}
+
+.main-container.dark-mode .search-box .search-icon{
+   color: hsl(0, 0%, 98%);
+}
+
+.main-container.light-mode .search-box .search-icon{
+  color: black;
+}
+
+/* ---------------Cards------------------------ */
+.main-country-container{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.main-container.light-mode .country-container{
+  color: black;
+}
+
+.main-container.dark-mode .country-container{
+  color: hsl(0, 0%, 98%);
+}
+
+.main-container.dark-mode .country-container .img-box{
+  background-color: hsl(0, 0%, 98%);
+}
+.main-container.light-mode .country-container .img-box{
+  background-color: black;
+}
+
+.country-container{
+  box-shadow: 0 2px 5px 1px rgba(0,0,0,0.6);
+  border-radius: 10px;
+  margin: 15px 0 50px 80px ; 
+  overflow: hidden;
+  width: 280px;
+  height: 350px;
+}
+
+.country-container .img-box{
+  height: 160px;
+  width: 280px;
+  overflow: hidden;
+
+}
+
+.country-container .img-box:hover{
+  cursor: pointer;
+
+}
+
+.country-container .img-box img{
+  width: 100%;
+  height: 100%;
+
+
+}
+
+.country-container .text-box{
+  padding: 30px 20px 30px;
+}
+
+.country-container .text-box h3{
+  margin-bottom: 20px;
+}
+
+.country-container .text-box p{
+  display: block;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.country-container .text-box p span{
+  font-weight: 600;
+}
+
+/* ----------------Button---------------- */
+.btn-container{
+  margin: 150px 0 90px 80px;
+}
+
+.btn-custom{
+  text-decoration: none;
+  padding: 7px 35px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.main-container.dark-mode .btn-custom{
+  color: hsl(0, 0%, 98%);
+  background-color: hsl(209, 23%, 22%);
+}
+
+.main-container.light-mode .btn-custom{
+  color: black;
+  background-color: hsl(0, 0%, 98%);
+}
+
+.main-container.dark-mode .btn-custom:hover{
+  color: black;
+  background-color: hsl(0, 0%, 98%);
+}
+
+.main-container.light-mode .btn-custom:hover{
+  color: hsl(0, 0%, 98%);
+  background-color: hsl(209, 23%, 22%);
+}
+
+
+/* ---------------Detail--------------------- */
+
+.flag-box{
+  overflow: hidden;
+  width: 40%;
+  margin-left: 80px;
+}
+
+.flag-box img{
+  width: 100%;
+  height: 90%;
+}
+
+.detail-box{
+  max-width: 52%;
+  padding: 30px 0 40px 5rem;
+}
+
+.detail-box-inner{
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.main-container.dark-mode .detail-box{
+  color: hsl(0, 0%, 98%);
+
+}
+
+.main-container.light-mode .detail-box{
+  color: black;
+
+}
+
+
+.detail-box h1{
+  margin-bottom: 20px;
+  font-size: 2.1rem;
+  display: block;
+}
+
+.detail-box p{
+  margin-bottom: 8px;
+  font-size: 600;
+}
+
+
+.inner-box-2{
+  margin-left: 10rem;
+}
+
+.btn-box{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btn-box a{
+  padding: 2px 5px;
+  text-decoration: none;
+  margin: 1rem 0.5rem 1rem;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px 1px rgba(0,0,0,0.6);
+}
+
+.border{
+  display:inline-block;
+}
+
+.main-container.dark-mode .btn-box a{
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 98%);
+}
+
+.main-container.light-mode .btn-box a{
+  background-color:hsl(0, 0%, 98%);
+  color: hsl(209, 23%, 22%);
 }
