@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import NumberWithCommas from "../modules/NumberWithCommas";
 import Backbutton from "../layouts/Backbutton";
-import Truncate from "../modules/Truncate";
+
 
 
 const Detail = (props) => {
@@ -40,11 +40,16 @@ const Detail = (props) => {
                         </p>
                     </div>
                 </div>
-
-                    <p className="border"><strong>Border Countries:</strong> </p>
-                    <div className="btn-box">
-                        {borders.length > 0 && 
-                        borders.map((b, id) => <Link key ={id} to={"/"+ b.name}> {Truncate(b.name)}</Link>)}
+                    <div className="border-box">
+                        <div className="border-title">
+                        <p className="border"><strong>Border Countries:</strong> </p>
+                        </div>
+                        
+                    
+                        <div className="btn-box">
+                            {borders.length > 0 && 
+                            borders.map((b, id) => <Link key ={id} to={"/"+ b.name}> {b.name}</Link>)}
+                        </div>
                     </div>
                    
 
