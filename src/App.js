@@ -1,8 +1,11 @@
 import React,{Fragment} from 'react';
 import {BrowserRouter as Router, Route, Redirect, Switch} from "react-router-dom";
 
+
 import Navbar from "./components/layouts/Navbar";
 import Countries from "./components/layouts/Countries";
+import Footer from "./components/layouts/Footer";
+
 import CountryAPI from "./components/modules/CountryAPI";
 import ToggleMode from "./components/modules/ToggleMode";
 
@@ -50,6 +53,7 @@ const App = () => {
               <Route path="/:detail" render={country}/>
             </Switch>
             
+            <Footer />
           </section>
 
         </Fragment>  
