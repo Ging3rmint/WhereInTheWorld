@@ -31,8 +31,14 @@ const Detail = (props) => {
                         <p><strong>Capital:</strong> <span>{capital}</span></p>    
                     </div>
                     <div className="inner-box-2">
-                        <p><strong>Top Level Domain:</strong> <span>{topLevelDomain[0]}</span></p>
-                        <p><strong>Currencies:</strong> <span>{currencies[0].name}</span></p>
+                        <p><strong>Top Level Domain:</strong>
+                        {topLevelDomain.map((dom, id) => <span key={id}>
+                            {id > 0? ", "+dom : " "+dom}</span>)}</p>
+
+                        <p><strong>Currencies:</strong> 
+                        {currencies.map((cur, id)=> <span key={id}>
+                        {id > 0? ", "+cur.name: " "+cur.name}</span>)}</p>
+
                         <p><strong>Languages:</strong> 
                         {languages.map((lang, id)=><span key={id}> 
                             {id > 0? ", " + lang.name: " "+lang.name}
@@ -47,8 +53,8 @@ const Detail = (props) => {
                         
                     
                         <div className="btn-box">
-                            {borders.length > 0 && 
-                            borders.map((b, id) => <Link key ={id} to={"/"+ b.name}> {b.name}</Link>)}
+                            {borders.length > 0? 
+                            borders.map((b, id) => <Link key ={id} to={"/"+ b.name}> {b.name}</Link>): <span>None</span>}
                         </div>
                     </div>
                    
